@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Skill, SkillTag, Project
+from .models import Skill, SkillTag, Project, Work
 from django.utils.html import format_html
 
 
@@ -27,4 +27,9 @@ class SkillTagAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+
+
+@admin.register(Work)
+class WorkAdmin(admin.ModelAdmin):
     list_display = ("name",)

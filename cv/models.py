@@ -39,10 +39,21 @@ class Skill(models.Model):
     )
 
 
+class Work(models.Model):
+    name = models.CharField(
+        verbose_name="Место работы",
+        max_length=120
+    )
+
+    description = models.TextField(
+        verbose_name="Чем занимался"
+    )
+
+
 class Project(models.Model):
     name = models.CharField(
-        verbose_name="Название скила",
-        max_length=60
+        verbose_name="Название проекта",
+        max_length=120
     )
 
     description = models.TextField(

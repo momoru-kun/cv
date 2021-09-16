@@ -21,13 +21,13 @@
     </v-tabs>
     <v-tabs-items v-model="tab">
       <v-tab-item>
-        <v-lazy><skills></skills></v-lazy>
+        <skills></skills>
       </v-tab-item>
       <v-tab-item>
-        <v-lazy><work-places></work-places></v-lazy>
+        <work-places></work-places>
       </v-tab-item>
       <v-tab-item>
-        <v-lazy><projects></projects></v-lazy>
+        <projects></projects>
       </v-tab-item>
     </v-tabs-items>
   </div>
@@ -36,6 +36,9 @@
 <script>
 export default {
   name: 'Data',
+  data: () => ({
+    tab: 0
+  }),
   components: {
     Projects: () => import(
       /* webpackChunkName: "datatab" */

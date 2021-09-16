@@ -23,7 +23,7 @@
         <v-col cols="12" md="6" sm="8">
           <contact-data></contact-data>
           <about-me></about-me>
-          <data-section></data-section>
+          <v-lazy><data-section></data-section></v-lazy>
         </v-col>
         <v-col cols="0" md="3" sm="2"></v-col>
       </v-row>
@@ -50,10 +50,7 @@ export default {
       /* webpackMode: "lazy" */
       './components/DataSection.vue'
     )
-  },
-  data: () => ({
-    tab: null
-  }),
+  }
 };
 </script>
 

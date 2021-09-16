@@ -45,13 +45,13 @@
           </v-tabs>
           <v-tabs-items v-model="tab">
             <v-tab-item>
-              <skills></skills>
+              <v-lazy><skills></skills></v-lazy>
             </v-tab-item>
             <v-tab-item>
-              <work-places></work-places>
+              <v-lazy><work-places></work-places></v-lazy>
             </v-tab-item>
             <v-tab-item>
-              <projects></projects>
+              <v-lazy><projects></projects></v-lazy>
             </v-tab-item>
           </v-tabs-items>
         </v-col>
@@ -64,13 +64,16 @@
 <script>
 import AboutMe from './components/AboutMe.vue';
 import ContactData from './components/ContactData.vue'
-import WorkPlaces from './components/WorkPlaces.vue';
-import Projects from './components/Projects.vue';
-import Skills from './components/Skills.vue';
 
 export default {
   name: 'App',
-  components: { ContactData, AboutMe, WorkPlaces, Projects, Skills },
+  components: {
+    ContactData,
+    AboutMe,
+    WorkPlaces: () => import('./components/WorkPlaces.vue'),
+    Projects: () => import('./components/Projects.vue'),
+    Skills: () => import('./components/Skills.vue')
+  },
   data: () => ({
     tab: null
   }),

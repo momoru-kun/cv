@@ -27,7 +27,7 @@ jobs:
         yarn
         yarn build
     - name: Deploy app
-    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "momorukun-cv" #Must be unique in Heroku

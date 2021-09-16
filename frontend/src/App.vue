@@ -62,14 +62,19 @@
 </template>
 
 <script>
-import AboutMe from './components/AboutMe.vue';
-import ContactData from './components/ContactData.vue'
-
 export default {
   name: 'App',
   components: {
-    ContactData,
-    AboutMe,
+    ContactData: () => import(
+      /* webpackChunkName: "about" */
+      /* webpackMode: "lazy" */
+      './components/ContactData.vue'
+    ),
+    AboutMe: () => import(
+      /* webpackChunkName: "about" */
+      /* webpackMode: "lazy" */
+      './components/AboutMe.vue'
+    ),
     Projects: () => import(
       /* webpackChunkName: "data" */
       /* webpackMode: "lazy" */

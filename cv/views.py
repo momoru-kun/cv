@@ -19,7 +19,7 @@ class SkillTagsViewSet(ReadOnlyModelViewSet):
     def retrieve(self, request, pk=None):
         tag = get_object_or_404(self.queryset, pk=pk)
 
-        queryset = tag.skills.all()
+        queryset = tag.skills.all().order_by("-percentage")
         serializer = SkillSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -27,7 +27,7 @@ class SkillTagsViewSet(ReadOnlyModelViewSet):
 class SkillViewSet(ReadOnlyModelViewSet):
 
     serializer_class = SkillSerializer
-    queryset = Skill.objects.all()
+    queryset = Skill.objects.all().order_by("-percentage")
 
     def list(self, request):
         serializer = self.serializer_class(self.queryset, many=True)

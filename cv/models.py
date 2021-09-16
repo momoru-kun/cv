@@ -87,3 +87,8 @@ class Project(models.Model):
         to=Skill,
         verbose_name="Стэк"
     )
+
+    github = models.URLField(
+        verbose_name="Ссылка на github (Если есть)",
+        max_length=100
+    )

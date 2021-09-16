@@ -44,6 +44,9 @@ class Skill(models.Model):
         related_name='skills'
     )
 
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Work(models.Model):
     name = models.CharField(

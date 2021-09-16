@@ -9,7 +9,7 @@
       elevation="2"
     >
       <v-expansion-panel-header> {{ project.name }} </v-expansion-panel-header>
-      <v-expansion-panel-content> {{ project.description }} </v-expansion-panel-content>
+      <v-expansion-panel-content class="text-body-2"> {{ project.description }} </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
 </template>

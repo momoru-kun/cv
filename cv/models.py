@@ -79,3 +79,10 @@ class Project(models.Model):
     description = models.TextField(
         verbose_name="Описание"
     )
+
+    skills = models.ManyToManyField(
+        to=Skill,
+        verbose_name="Стэк",
+        on_delete=models.SET_NULL,
+        null=True
+    )

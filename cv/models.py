@@ -23,7 +23,9 @@ class Skill(models.Model):
     )
 
     description = models.TextField(
-        verbose_name="Описание"
+        verbose_name="Описание",
+        null=True,
+        blank=True
     )
 
     percentage = models.DecimalField(

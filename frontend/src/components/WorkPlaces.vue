@@ -11,7 +11,6 @@
           <div class="text-overline">
             {{ format_date(workplace.date_start) }} &mdash; {{ workplace.by_today ? 'по сегодняшний день' : format_date(workplace.date_end) }}
           </div>
-          <div class="text-subtitle-1 mt-2"> Обязанности </div>
           <v-list-item-content class="text-body-2 align-self-start pt-1" v-html="workplace.description"></v-list-item-content>
         </v-list-item>
       </v-list>

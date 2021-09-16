@@ -82,7 +82,5 @@ class Project(models.Model):
 
     skills = models.ManyToManyField(
         to=Skill,
-        verbose_name="Стэк",
-        on_delete=models.SET_NULL,
-        null=True
+        verbose_name="Стэк"
     )

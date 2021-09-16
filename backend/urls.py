@@ -20,5 +20,9 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', TemplateView.as_view(template_name="index.html")),
     path('admin/', admin.site.urls),
-    path('api/', include('cv.urls'))
+    path('api/', include('cv.urls')),
+    path(
+        'google21992f49ec012edf.html',
+        TemplateView.as_view(template_name="varification.html")
+    ),
 ]

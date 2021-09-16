@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Skill, SkillTag, Project, Work
 from django.utils.html import format_html
+
+from .models import Project, Skill, SkillTag, Work
 
 
 @admin.register(Skill)

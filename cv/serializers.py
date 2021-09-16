@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import SkillTag, Skill, Project, Work
+
+from .models import Project, Skill, SkillTag, Work
 
 
 class SkillTagSerializer(serializers.ModelSerializer):
@@ -30,5 +31,8 @@ class WorkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Work
-        fields = ('id', 'name', 'description')
+        fields = (
+            'id', 'name', 'date_start',
+            'date_end', 'by_today', 'description'
+        )
         read_only_fields = fields

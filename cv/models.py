@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class SkillTag(models.Model):
@@ -10,6 +11,9 @@ class SkillTag(models.Model):
         verbose_name="Цвет",
         max_length=7
     )
+
+    def __str__(self):
+        return self.name
 
 
 class Skill(models.Model):
@@ -43,6 +47,20 @@ class Work(models.Model):
     name = models.CharField(
         verbose_name="Место работы",
         max_length=120
+    )
+
+    date_start = models.DateField(
+        verbose_name="Дата начала работы",
+        default=timezone.now
+    )
+    date_end = models.DateField(
+        verbose_name="Дата увольнения",
+        default=timezone.now
+    )
+
+    by_today = models.BooleanField(
+        verbose_name="По сегодняшний день",
+        default=False
     )
 
     description = models.TextField(

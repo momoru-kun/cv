@@ -1,14 +1,10 @@
-from rest_framework.viewsets import ReadOnlyModelViewSet
-from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
-from .models import Project, SkillTag, Skill, Work
-from .serializers import (
-    SkillTagSerializer,
-    SkillSerializer,
-    ProjectSerializer,
-    WorkSerializer
-)
+from .models import Project, Skill, SkillTag, Work
+from .serializers import (ProjectSerializer, SkillSerializer,
+                          SkillTagSerializer, WorkSerializer)
 
 
 class SkillTagsViewSet(ReadOnlyModelViewSet):
@@ -24,9 +20,7 @@ class SkillTagsViewSet(ReadOnlyModelViewSet):
         tag = get_object_or_404(self.queryset, pk=pk)
 
         queryset = tag.skills.all()
-        print(queryset)
         serializer = SkillSerializer(queryset, many=True)
-        print(serializer.data)
         return Response(serializer.data)
 
 
@@ -53,7 +47,7 @@ class ProjectViewSet(ReadOnlyModelViewSet):
 class WorkViewSet(ReadOnlyModelViewSet):
 
     serializer_class = WorkSerializer
-    queryset = Work.objects.all()
+    queryset = Work.objects.all().order_by('-date_start')
 
     def list(self, request):
         serializer = self.serializer_class(self.queryset, many=True)

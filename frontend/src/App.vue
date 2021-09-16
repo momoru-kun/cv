@@ -5,7 +5,7 @@
       color="primary"
       dark
     >
-      <v-app-bar-title> Резюме </v-app-bar-title>
+      <div class="text-h5"> Резюме </div>
       <v-spacer></v-spacer>
       <v-btn
         href="https://github.com/momoru-kun"
@@ -27,8 +27,13 @@
             v-model="tab"
             centered
             icons-and-text
+            :show-arrows="false"
           >
             <v-tabs-slider color="primary"></v-tabs-slider>
+            <v-tab>
+              Скилы
+              <v-icon> mdi-laptop </v-icon>
+            </v-tab>
             <v-tab>
               Опыт работы
               <v-icon> mdi-briefcase </v-icon>
@@ -37,11 +42,18 @@
               Проекты
               <v-icon> mdi-semantic-web </v-icon>
             </v-tab>
-            <v-tab>
-              Скилы
-              <v-icon> mdi-laptop </v-icon>
-            </v-tab>
           </v-tabs>
+          <v-tabs-items v-model="tab">
+            <v-tab-item>
+              <skills></skills>
+            </v-tab-item>
+            <v-tab-item>
+              <work-places></work-places>
+            </v-tab-item>
+            <v-tab-item>
+              <projects></projects>
+            </v-tab-item>
+          </v-tabs-items>
         </v-col>
         <v-col cols="0" md="3" sm="2"></v-col>
       </v-row>
@@ -52,11 +64,24 @@
 <script>
 import AboutMe from './components/AboutMe.vue';
 import ContactData from './components/ContactData.vue'
+import WorkPlaces from './components/WorkPlaces.vue';
+import Projects from './components/Projects.vue';
+import Skills from './components/Skills.vue';
+
 export default {
   name: 'App',
-  components: { ContactData, AboutMe },
+  components: { ContactData, AboutMe, WorkPlaces, Projects, Skills },
   data: () => ({
-    tab: ''
+    tab: null
   }),
 };
 </script>
+
+<style>
+.v-slide-group__prev.v-slide-group__prev--disabled {
+  display: none !important;
+}
+.v-slide-group__next.v-slide-group__next--disabled {
+  display: none !important;
+}
+</style>

@@ -70,9 +70,21 @@ export default {
   components: {
     ContactData,
     AboutMe,
-    WorkPlaces: () => import('./components/WorkPlaces.vue'),
-    Projects: () => import('./components/Projects.vue'),
-    Skills: () => import('./components/Skills.vue')
+    Projects: () => import(
+      /* webpackChunkName: "data" */
+      /* webpackMode: "lazy" */
+      './components/Projects.vue'
+    ),
+    WorkPlaces: () => import(
+      /* webpackChunkName: "data" */
+      /* webpackMode: "lazy" */
+      './components/WorkPlaces.vue'
+    ),
+    Skills: () => import(
+      /* webpackChunkName: "data" */
+      /* webpackMode: "lazy" */
+      './components/Skills.vue'
+    )
   },
   data: () => ({
     tab: null

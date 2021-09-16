@@ -23,37 +23,7 @@
         <v-col cols="12" md="6" sm="8">
           <contact-data></contact-data>
           <about-me></about-me>
-          <v-tabs
-            v-model="tab"
-            centered
-            icons-and-text
-            :show-arrows="false"
-          >
-            <v-tabs-slider color="primary"></v-tabs-slider>
-            <v-tab>
-              Скилы
-              <v-icon> mdi-laptop </v-icon>
-            </v-tab>
-            <v-tab>
-              Опыт работы
-              <v-icon> mdi-briefcase </v-icon>
-            </v-tab>
-            <v-tab>
-              Проекты
-              <v-icon> mdi-semantic-web </v-icon>
-            </v-tab>
-          </v-tabs>
-          <v-tabs-items v-model="tab">
-            <v-tab-item>
-              <v-lazy><skills></skills></v-lazy>
-            </v-tab-item>
-            <v-tab-item>
-              <v-lazy><work-places></work-places></v-lazy>
-            </v-tab-item>
-            <v-tab-item>
-              <v-lazy><projects></projects></v-lazy>
-            </v-tab-item>
-          </v-tabs-items>
+          <data-section></data-section>
         </v-col>
         <v-col cols="0" md="3" sm="2"></v-col>
       </v-row>
@@ -66,7 +36,7 @@ export default {
   name: 'App',
   components: {
     ContactData: () => import(
-      /* webpackChunkName: "about" */
+      /* webpackChunkName: "contact" */
       /* webpackMode: "lazy" */
       './components/ContactData.vue'
     ),
@@ -75,20 +45,10 @@ export default {
       /* webpackMode: "lazy" */
       './components/AboutMe.vue'
     ),
-    Projects: () => import(
+    DataSection: () => import(
       /* webpackChunkName: "data" */
       /* webpackMode: "lazy" */
-      './components/Projects.vue'
-    ),
-    WorkPlaces: () => import(
-      /* webpackChunkName: "data" */
-      /* webpackMode: "lazy" */
-      './components/WorkPlaces.vue'
-    ),
-    Skills: () => import(
-      /* webpackChunkName: "data" */
-      /* webpackMode: "lazy" */
-      './components/Skills.vue'
+      './components/DataSection.vue'
     )
   },
   data: () => ({

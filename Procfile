@@ -1,1 +1,1 @@
-web: python ./manage.py makemigrations; python ./manage.py migrate; gunicorn backend.wsgi:applicaion -w 3
+web: python ./manage.py makemigrations; python ./manage.py migrate; gunicorn backend.wsgi:applicaion

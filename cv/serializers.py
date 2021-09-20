@@ -19,11 +19,23 @@ class SkillSerializer(serializers.ModelSerializer):
         read_only_fields = fields
 
 
-class ProjectSerializer(serializers.ModelSerializer):
+class SkillNameSerializer(serializers.ModelSerializer):
 
     class Meta:
+        model = Skill
+        fields = ('name',)
+        read_only_fields = fields
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+
+    skills = SkillNameSerializer(many=True, read_only=True)
+    class Meta:
         model = Project
-        fields = ('id', 'name', 'description')
+        fields = (
+            'id', 'name', 'description',
+            'link', 'skills', 'role'
+        )
         read_only_fields = fields
 
 

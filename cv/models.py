@@ -88,7 +88,15 @@ class Project(models.Model):
         verbose_name="Стэк"
     )
 
-    github = models.URLField(
-        verbose_name="Ссылка на github (Если есть)",
-        max_length=100
+    role = models.CharField(
+        verbose_name="Роль",
+        max_length=120,
+        null=True
+    )
+
+    link = models.URLField(
+        verbose_name="Ссылка на проект (Если есть)",
+        max_length=100,
+        null=True,
+        blank=True
     )

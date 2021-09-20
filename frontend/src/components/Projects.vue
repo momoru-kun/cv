@@ -9,7 +9,27 @@
       elevation="2"
     >
       <v-expansion-panel-header> {{ project.name }} </v-expansion-panel-header>
-      <v-expansion-panel-content class="text-body-2"> {{ project.description }} </v-expansion-panel-content>
+      <v-expansion-panel-content>
+        <div class="text-body-1 project-role"> <span class="font-weight-medium">Роль:</span> {{ project.role }} </div>
+        <div class="text-body-1 font-weight-medium mt-1"> Описание: </div>
+        <div class="text-body-1 ml-1">
+          {{ project.description }}
+        </div>
+        <div class="text-body-1 mt-2">
+          <span class="text-body-1 font-weight-medium">Стек</span>: {{ project.skills.reduce((skillStr, skill) => skillStr + `${skill.name}; `, '') }}
+        </div>
+        <v-btn
+          v-if="project.link"
+          text
+          color="primary"
+          class="float-right"
+          :href="project.link"
+          target="_blank"
+        >
+          <v-icon class="mr-2">mdi-open-in-new</v-icon>
+          Ссылка на проект
+        </v-btn>
+      </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
 </template>
@@ -24,3 +44,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.project-role {
+  letter-spacing: .0325em;
+  line-height: 1.25em;
+}
+</style>
